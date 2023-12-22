@@ -61,3 +61,77 @@ var saludoDeGato = saludando.bind(gato,'miau!')
 saludoDeGato()
 var saludoDePerro = saludando.bind(perro,'guau!')
 saludoDePerro()
+
+// ---------------------------------------------------------------------------------------------->
+
+// Más sobre BIND...
+// Creamos dos objetos literales con coordenadas:
+let c1 = {
+    x: 5,
+    y: 10,
+}
+
+let c2 = {
+    x: 75,
+    y: 235,
+}
+
+// Creamos una función que devuelve coordenadas utilizando 'this'
+function printCoords(){
+    console.log(this)
+    console.log(this.x + ', ' + this.y)
+}
+
+// Asociamos la función al objeto cuyas coordenadas queremos usar.  |   Ex: printCoords.bind(c1)
+// Asignamos a una nueva variable.  |   Ex: let c1_func
+let c1_func = printCoords.bind(c1)
+let c2_func = printCoords.bind(c2)
+c1_func()
+c2_func()
+
+// ---------------------------------------------------------------------------------------------->
+
+let monkey = {
+    type: 'monkey',
+    name: 'Kakarot',
+    age: 20,
+    tail: true,
+}
+
+let dog = {
+    type: 'dog',
+    name: 'Pluto',
+    age: 5,
+    tail: true,
+}
+
+let crab = {
+    type: 'crab',
+    name: 'Roque',
+    age: 50,
+    tail: false,
+}
+
+function gimmeAnimal(){
+    console.log(this);
+    console.log(`Hello! this is the story of ${this.name} the ${this.type} at the age of ${this.age}`)
+    if(this.tail) console.log('Yeah! I have a tail!')
+    else console.log('nope! no tail...')
+};
+
+console.log()
+console.log('-- Monkey Story --')
+let monkeyStory = gimmeAnimal.bind(monkey)
+monkeyStory();
+
+console.log()
+console.log('-- Dog Story --')
+let dogStory = gimmeAnimal.bind(dog)
+dogStory();
+
+console.log()
+console.log('-- Crab Story --')
+let crabStory = gimmeAnimal.bind(crab)
+crabStory();
+
+console.log()

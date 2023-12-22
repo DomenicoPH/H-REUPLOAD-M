@@ -90,3 +90,28 @@ console.log(smartCount('-'))
 console.log(smartCount('*'))
 console.log(smartCount('/'))
 console.log(smartCount('%'))
+
+
+
+// Más ejemplos con closures...
+function mascotas(nombre){
+    //const nombre = 'Blacky'
+    return function(tipo){
+        return `Tu mascota es un ${tipo} y se llama ${nombre}`
+    }
+};
+
+console.log(mascotas());
+
+let mascota = mascotas('Bizcocho');
+console.log(mascota('cocodrilo'));
+
+const mascota2 = mascotas('Pitín');
+console.log(mascota2('elefante'));
+
+const mascota3 = mascotas('Curry');
+console.log(mascota3('mono'));
+
+const mascota4 = mascotas('Bosco')
+console.log(mascota4('mosquito'));
+
