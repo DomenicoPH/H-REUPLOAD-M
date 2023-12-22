@@ -13,7 +13,19 @@ nuevoContador()     // 2
 const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
-function counter() {}
+function counter() {
+  let count = 0
+  return function plus(){
+    count++
+    return count
+  }
+}
+
+let countPlus = counter()
+console.log(countPlus())
+console.log(countPlus())
+console.log(countPlus())
+
 
 /* Ejercicio 2
 Tu tarea aquí es lograr, mediante un closure, que cacheFunction actúe como una memoria caché para el callback 
