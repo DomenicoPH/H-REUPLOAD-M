@@ -64,6 +64,9 @@ Stack.prototype.push = function(value){
 Stack.prototype.pop = function(){
     this.arr.pop()
 }
+Stack.prototype.size = function(){
+    return this.arr.length
+}
 
 // Crear instancia del Stack:
 let miStack = new Stack()
@@ -75,17 +78,82 @@ miStack.push('this is C')
 miStack.push('this is D')
 console.log(miStack)
 
+    // Medida de mi Stack
+    console.log(miStack.size())
+
 // Quitar del Stack:
 miStack.pop()
 console.log(miStack)
 
-miStack.pop()
-console.log(miStack)
+    // Medida de mi Stack
+    console.log(miStack.size())
 
 miStack.pop()
 console.log(miStack)
 
+miStack.pop()
+console.log(miStack)
+
+    // Medida de mi Stack
+    console.log(miStack.size())
 
 
 
-// Queue (Cola) | FIFO (First In First Out)
+
+// Queue (Cola) | FIFO (First In First Out) | handle: push() y shift()
+function Queue(){
+    this.arr = [];
+}
+
+Queue.prototype.enqueue = function(value){
+    this.arr.push(value)
+};
+Queue.prototype.dequeue = function(){
+    return this.arr.shift()
+};
+Queue.prototype.size = function(){
+    return this.arr.length
+};
+
+// Queue testing:
+let miCola = new Queue()
+console.log(miCola)
+    /* size */ console.log(miCola.size())
+
+miCola.enqueue('one')
+miCola.enqueue('two')
+miCola.enqueue('three')
+console.log(miCola)
+
+    /* size */ console.log(miCola.size())
+
+// Queue flow ...
+miCola.dequeue()
+miCola.enqueue('four')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('five')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('six')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('seven')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('eight')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('nine')
+console.log(miCola)
+
+miCola.dequeue()
+miCola.enqueue('ten')
+console.log(miCola)
+
+    /* size */ console.log(miCola.size())
