@@ -5,7 +5,7 @@ function HashTable(){
     this.numBuckets = 35
 }
 
-// hash:
+// hash
 HashTable.prototype.hash = function(key){
     let hash = 0
     for (let i = 0; i < key.length; i++) {
@@ -14,7 +14,7 @@ HashTable.prototype.hash = function(key){
     return hash % this.numBuckets
 }
 
-// set
+// ---------------------------------- set
 HashTable.prototype.set = function(key,value){
     if(typeof key !== 'string') throw new TypeError('Keys must be strings')
     let position = this.hash(key)
@@ -22,19 +22,77 @@ HashTable.prototype.set = function(key,value){
     this.buckets[position][key] = value
 }
 
-// get
-HashTable.prototype.get = function(){
+// ---------------------------------- get
+HashTable.prototype.get = function(key){
+    let position = this.hash(key)
+    if(this.buckets[position][key]) return this.buckets[position][key]
+    return false
+}   // * FALLA: (corregido más abajo)
 
-}
+// ---------------------------------- haskey
+HashTable.prototype.hasKey = function(key){
+    let position = this.hash(key)
+    if(this.buckets[position][key]) return true
+    return false
+}   // * FALLA: (corregido más abajo)
 
-// haskey
-HashTable.prototype.haskey = function(){
+// XX---> Métodos CORREGIDOS (Pisan a los anteriores) <---XX
+HashTable.prototype.get = function(key){
+    let position = this.hash(key)
+    if(this.buckets[position] && this.buckets[position][key]) {
+        return this.buckets[position][key]
+    } else {
+        console.log('El elemento no está en la tabla')
+        return false
+    }
+}//---------------------------------- get corregido
 
-}
+HashTable.prototype.hasKey = function(key){
+    let position = this.hash(key)
+    if(this.buckets[position] && this.buckets[position][key]) {
+        return true
+    } else {
+        console.log('false')
+        return false
+    }
+}//---------------------------------- hasKey corregido
+
 
 const miTablaHash = new HashTable()
 console.log(miTablaHash)
 
+// set
+miTablaHash.set('001', {nombre: 'Domenico', apellido: 'Pagano', nacimiento: 1986})
+miTablaHash.set('002', {nombre: 'Petunio', apellido: 'Parafino', nacimiento: 1920})
+miTablaHash.set('003', {nombre: 'Gregoria', apellido: 'Mantequilla', nacimiento: 1845})
+miTablaHash.set('004', {nombre: 'Flash', apellido: 'Gordo', nacimiento: 1945})
+miTablaHash.set('005', {nombre: 'Nuevo', apellido: 'Milenio', nacimiento: 2000})
+miTablaHash.set('006', {nombre: 'Caballero', apellido: 'Del Futuro', nacimiento: 3001})
+miTablaHash.set('007', {nombre: 'James', apellido: 'Bond', nacimiento: 1930})
+miTablaHash.set('008', {nombre: 'Graciela', apellido: 'Valderrama', nacimiento: 1987})
+miTablaHash.set('009', {nombre: 'Gia', apellido: 'Perrito', nacimiento: 2016})
+
+//get
+console.log(miTablaHash.get('001'))
+console.log(miTablaHash.get('008'))
+console.log(miTablaHash.get('009'))
+console.log(miTablaHash.get('002'))
+console.log(miTablaHash.get('007'))
+console.log(miTablaHash.get('005'))
+console.log(miTablaHash.get('010'))
+console.log(miTablaHash.get('000'))
+console.log(miTablaHash.get('015'))
+
+//hasKey
+console.log(miTablaHash.hasKey('001'))
+console.log(miTablaHash.hasKey('005'))
+
+
+
+
+// Apuntes y pruebas ---------------------------------->>>
+
+// test función hash
 console.log(miTablaHash.hash('loco'))
 console.log(miTablaHash.hash('viejo'))
 console.log(miTablaHash.hash('cansado'))
@@ -46,7 +104,6 @@ console.log(miTablaHash.hash('persona'))
 console.log(miTablaHash.hash('las'))
 console.log(miTablaHash.hash('sal'))
 console.log(miTablaHash.hash('als'))
-
 
 //charCodeAt()
 console.log('a'.charCodeAt())
@@ -66,23 +123,4 @@ console.log('A'.charCodeAt())
     el contenedor para todos los buckets en la tabla hash y position es un índice específico donde se almacenarán 
     los valores, esta línea se asegura de que cada posición (o bucket) tenga un array asignado para almacenar 
     múltiples valores, evitando errores al intentar agregar valores a una posición indefinida o no inicializada.
-*/
-
-/* FUNCIONES SET ALTERNATIVAS
-
-HashTable.prototype.setALTB = function(key,value){                          // set alternativo
-    if(typeof key !== 'string') throw TypeError('Keys must be strings')     // Si el tipo de dato de 'key' NO ES un string -> lanza TypeError('Keys must be strings') 
-    let position = this.hash(key)                                           // 'position' es igual al valor resultante de pasar la 'key' por la función 'hash'
-    this.buckets[position] = this.buckets[position] || []                   // Verifica si en la posición calculada por 'hash' ya existe algún valor. Si no hay nada crea un array vacio
-    this.buckets[position].push({ key: key, value: value })                 // Ahora que la posición contiene un array vacio, hacemos push en el array añadiendo un objeto con las 'key' y 'value' recibidas por parámetro
-}
-
-HashTable.prototype.setALTC = function(key,value){                          // set alternativo
-    var index = this.hash(key)                                              //index es igual al resultado de la 'key' (pasada por parámetro) pasada por la función 'hash'
-    if(!this.buckets[index]){                                               //Verifica que no haya nada en 'index'
-      this.buckets[index]                                                   //Si no hay elementos en ese índice, crear un array vacio
-    }
-    this.buckets[index].push([key,value])                                   //Añadir el par clave-valor al array
-    return this
-}
 */
