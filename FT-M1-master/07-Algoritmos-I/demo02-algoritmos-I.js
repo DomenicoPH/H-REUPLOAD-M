@@ -108,6 +108,9 @@ function bubbleSort(arr){
 let bsTestArr1 = [4, 1, 6, 3, 8, 5, 2, 7]
 let bsTestArr2 = [9, 7, 5, 3, 1]
 console.log(bubbleSort(bsTestArr1))
+console.log(bubbleSort(bsTestArr2))
+console.log(bubbleSort([8, 6, 4, 2, 0]))
+console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 
 // --> bubbleSort --> Big-O: O(n^2)
 
@@ -129,7 +132,93 @@ function bubbleSortRepeat(arr){
 console.log(bubbleSortRepeat([5,4,3,2,1]))
 console.log(bubbleSortRepeat([100, 80, 40, 20, 1]))
 
+function bubbleSortNoSwitcher(arr){
+    for(let i=0; i < arr.length - 1; i++){
+        for(let j=0; j < arr.length - 1; j++){
+            if(arr[j] > arr[j+1]){
+                let aux = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = aux
+            }
+        }
+    }
+    return arr
+    // --> bubbleSort --> Big-O: O(n^2)
+} 
+console.log(bubbleSortNoSwitcher([6,4,3,5,2,1]))
+console.log(bubbleSortRepeat([50, 40, 30, 20, 10]))
+
+function myPersonalBubbleSorter(arr){
+    for(let i=0; i < arr.length - 1; i++){
+        for(let j=0; j < arr.length - 1; j++){
+            if(arr[j] > arr[j+1]){
+                let aux = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = aux
+            }
+        }
+    }
+    return arr
+}
+console.log(myPersonalBubbleSorter([10, 6, 3, 2, 1, 8, 0, 5, 4, 9, 7]))
+console.log(myPersonalBubbleSorter([5, 4, 3, 2, 1, 0]))
+
 /* Insertion Sort -------------------------------------------------------------------------------------------------------------------------------> */
 
 /* Selection Sort -------------------------------------------------------------------------------------------------------------------------------> */
 
+
+
+
+// *** Memo ***
+
+// 1. Factorear:
+function factorearMemo(num){
+    let factores = [1]
+    let divisor = 2
+    while(num > 1){
+        while(num % divisor === 0){
+            factores.push(divisor)
+            num /= divisor
+        }
+        divisor++
+    }
+    return factores
+};
+console.log(factorearMemo(180))
+console.log(factorearMemo(360))
+
+// 2. Bubble Sort (con interruptor)
+function bubbleSortConSwitcherMemo(arr){
+    let switcher = true
+    while(switcher){
+        switcher = false
+        for(let i=0; i < arr.length - 1; i++){
+            if(arr[i] > arr[i+1]){
+                let aux = arr[i]
+                arr[i] = arr[i+1]
+                arr[i+1] = aux
+                switcher = true
+            }
+        }
+    }
+    return arr
+};
+console.log(bubbleSortConSwitcherMemo([5, 4, 3, 2, 1]))
+console.log(bubbleSortConSwitcherMemo(['e', 'b', 'd', 'c', 'a']))
+
+// 2. Bubble Sort (sin interruptor)
+function bubbleSortSinSwitcherMemo(arr){
+    for(let i=0; i < arr.length - 1; i++){
+        for(let j=0; j < arr.length - 1; j++){
+            if(arr[j] > arr[j+1]){
+                let aux = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = aux
+            }
+        }
+    }
+    return arr
+};
+console.log(bubbleSortSinSwitcherMemo([5,4,3,2,1]))
+console.log(bubbleSortSinSwitcherMemo([10, 9, 7, 5, 2, 1]))
