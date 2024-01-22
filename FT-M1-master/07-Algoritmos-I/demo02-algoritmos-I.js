@@ -163,7 +163,35 @@ function myPersonalBubbleSorter(arr){
 console.log(myPersonalBubbleSorter([10, 6, 3, 2, 1, 8, 0, 5, 4, 9, 7]))
 console.log(myPersonalBubbleSorter([5, 4, 3, 2, 1, 0]))
 
+
 /* Insertion Sort -------------------------------------------------------------------------------------------------------------------------------> */
+function insertionSort(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                [arr[j],arr[j-1]] = [arr[j-1],arr[j]]
+            }
+        }
+    }
+    return arr
+}
+const unorderedArr1 = [3,5,4,6,2,1]
+console.log(insertionSort(unorderedArr1))
+
+function insertionSortAux(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                let aux = arr[j]
+                arr[j] = arr[j-1]
+                arr[j-1] = aux
+            }
+        }
+    }
+    return arr
+}
+console.log(insertionSortAux([5, 3, 4, 2, 1]))
+console.log(insertionSortAux(['b','c','a']))
 
 /* Selection Sort -------------------------------------------------------------------------------------------------------------------------------> */
 
