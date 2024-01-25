@@ -250,3 +250,33 @@ function bubbleSortSinSwitcherMemo(arr){
 };
 console.log(bubbleSortSinSwitcherMemo([5,4,3,2,1]))
 console.log(bubbleSortSinSwitcherMemo([10, 9, 7, 5, 2, 1]))
+
+// 3. Insertion Sort
+function inserionSortalg(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                [arr[j],arr[j-1]] = [arr[j-1],arr[j]]
+            }
+        }
+    }
+    return arr
+}
+console.log(inserionSortalg([5,4,3,2,1]))
+
+// 4. Selection Sort
+function selectionSort(arr){
+    for(let i=0; i < arr.length-1; i++){
+        let min = i
+        for(let j=i+1; j < arr.length; j++){
+            if(arr[j] < arr[min]){
+                min = j
+            }
+        }
+        let aux = arr[i]
+        arr[i] = arr[min]
+        arr[min] = aux
+    }
+    return arr
+}
+console.log(selectionSort([5,4,3,2,1]))
