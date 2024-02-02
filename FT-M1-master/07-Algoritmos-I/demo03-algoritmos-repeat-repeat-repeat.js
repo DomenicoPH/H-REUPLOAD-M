@@ -359,6 +359,20 @@ function f17(num){
 }
 console.log(f17(180))
 
+function f18(num){
+    let f = [1]
+    let d = 2
+    while(num > 1){
+        while(num % d === 0){
+            f.push(d)
+            num /= d
+        }
+        d++
+    }
+    return f
+}
+console.log(f18(180))
+
 
 
 // bubble sort ( (<) (<) (j > j+1) )
@@ -598,6 +612,19 @@ function bs18(arr){
 }
 console.log(bs18([5,4,3,2,1]))
 
+function bs19(arr){
+    for(let i=0; i < arr.length - 1; i++){
+        for(let j=0; j < arr.length - 1; j++){
+            if(arr[j] > arr[j+1]){
+                let aux = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = aux
+            }
+        }
+    }
+    return arr
+}
+console.log(bs19([5,4,3,2,1]))
 
 
 // insertion sort ( (<) (>) (j < j-1) )
@@ -800,6 +827,20 @@ function is15(arr){
     return arr
 }
 console.log(is15([5,4,3,2,1]))
+
+function is16(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                let aux = arr[j]
+                arr[j] = arr[j-1]
+                arr[j-1] = aux
+            }
+        }
+    }
+    return arr
+}
+console.log(is16([5,4,3,2,1]))
 
 
 // selection sort ( (<) (min = i) (<) (j < min) (min = j))
@@ -1043,6 +1084,33 @@ function ss16(arr){
 }
 console.log(ss16([5,4,3,2,1]))
 
+function ss17(arr){
+    for(let i=0; i < arr.length; i++){
+        let min = i
+        for(let j=i+1; j < arr.length; j++){
+            if(arr[j] < arr[min]) min = j
+        }
+        [arr[i],arr[min]] = [arr[min],arr[i]]
+    }
+    return arr
+}
+console.log(ss17([5,4,3,2,1]))
+
+function ss18(arr){
+    for(let i=0; i < arr.length; i++){
+        let min = i
+        for(let j=i+1; j < arr.length; j++){
+            if(arr[j] < arr[min]){
+                min = j
+            }
+        }
+        let aux = arr[i]
+        arr[i] = arr[min]
+        arr[min] = aux
+    }
+    return arr
+}
+console.log(ss18([5,4,3,2,1]))
 
 
 // New Rep...
@@ -1137,3 +1205,216 @@ function quickSortShort(arr){
     return quickSortShort(left).concat(pivot,quickSortShort(right))
 }
 console.log(quickSortShort([5,4,3,2,1]))
+
+//mergeSort
+function mergeSort(arr){
+    if(arr.length === 1) return arr
+    let half = Math.floor(arr.length / 2)
+    let left = arr.slice(0,half)
+    let right = arr.slice(half)
+    return mergeAux(mergeSort(left),mergeSort(right))
+};
+//aux
+function mergeAux(arr1,arr2){
+    let i = 0
+    let j = 0
+    let o = []
+    while(i < arr1.length && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            o.push(arr1[i])
+            i++
+        } else {
+            o.push(arr2[j])
+            j++
+        }
+    }
+    return o.concat(arr1.slice(i),arr2.slice(j))
+};
+console.log(mergeSort([5,4,3,2,1]))
+
+//rep QS
+function qs1(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs1(left).concat(pivot,qs1(right))
+}
+console.log(qs1([5,4,3,2,1]))
+
+function qs2(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] < pivot){
+            left.push(arr[i])
+        } else {
+            right.push(arr[i])
+        }
+    }
+    return qs2(left).concat(pivot, qs2(right))
+}
+console.log(qs2([5,4,3,2,1]))
+
+function qs3(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i = 1; i < arr.length; i++){
+        if(arr[i] < pivot){
+            left.push(arr[i])
+        } else {
+            right.push(arr[i])
+        }
+    }
+    return qs3(left).concat(pivot,qs3(right))
+}
+console.log(qs3([5,4,3,2,1]))
+
+function qs4(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs4(left).concat(pivot,qs4(right))
+}
+console.log(qs4([5,4,3,2,1]))
+
+function qs5(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs5(left).concat(pivot,qs5(right))
+}
+console.log(qs5([5,4,3,2,1]))
+
+function qs6(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs6(left).concat(pivot, qs6(right))
+}
+console.log(qs6([5,4,3,2,1]))
+
+function qs7(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs7(left).concat(pivot,qs7(right))
+}
+console.log(qs7([5,4,3,2,1]))
+
+function qs8(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs8(left).concat(pivot,qs8(right))
+}
+console.log(qs8([5,4,3,2,1]))
+
+
+//rep MS
+function ms01(arr){
+    if(arr.length <= 1) return arr
+    let half = Math.floor(arr.length / 2)
+    let left = arr.slice(0,half)
+    let right = arr.slice(half)
+    return mAux01(ms01(left),ms01(right))
+}
+function mAux01(arr1,arr2){
+    let i = 0
+    let j = 0
+    let ordered = []
+    while(i < arr1.length && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            ordered.push(arr1[i])
+            i++
+        } else {
+            ordered.push(arr2[j])
+            j++
+        }
+    }
+    return ordered.concat(arr1.slice(i),arr2.slice(j))
+}
+console.log(ms01([5,4,3,2,1]))
+
+
+function ms02(arr){
+    if(arr.length <= 1) return arr
+    let half = Math.floor(arr.length / 2)
+    let left = arr.slice(0,half)
+    let right = arr.slice(half)
+    return mAux02(ms02(left),ms02(right))
+}
+function mAux02(arr1,arr2){
+    let i = 0
+    let j = 0
+    let ordered = []
+    while(i < arr1.length && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            ordered.push(arr1[i])
+            i++
+        } else {
+            ordered.push(arr2[j])
+            j++
+        }
+    }
+    return ordered.concat(arr1.slice(i),arr2.slice(j))
+}
+console.log(ms02([5,4,3,2,1]))
+
+
+function ms03(arr){
+    if(arr.length <= 1) return arr
+    let mitad = Math.floor(arr.length / 2)
+    let left = arr.slice(0,mitad)
+    let right = arr.slice(mitad)
+    return mAux03(ms03(left),ms03(right))
+}
+function mAux03(a,b){
+    let i=0
+    let j=0
+    let o=[]
+    while(i < a.length && j < b.length){
+        if(a[i] < b[j]){
+            o.push(a[i])
+            i++
+        } else {
+            o.push(b[j])
+            j++
+        }
+    }
+    return o.concat(a.slice(i), b.slice(j))
+}
+console.log(ms03([5,4,3,2,1]))
