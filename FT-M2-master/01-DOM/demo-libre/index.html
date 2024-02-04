@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #titulo{
+            color: rgb(34, 34, 75);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .contenidos{
+            background-color: bisque;
+            color: rgb(34, 34, 75);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 0.5px 15px;
+            border-bottom: 2px solid rgb(34, 34, 75);
+        }
+        .otros{
+            background-color: rgb(34, 34, 75);
+            color: bisque;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 0.5px 15px;
+            border-bottom: 2px solid bisque;
+        }
+        #boton,#botonRojo,#showText{
+            background-color: bisque;
+            color: rgb(34, 34, 75);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: none;
+            padding: 10px;
+            margin: 5px 0px;
+        }
+        #boton:hover{
+            background-color: rgb(34, 34, 75);
+            color: bisque;
+            cursor: pointer;
+        }
+        /*RED*/
+        #botonRojo:hover{
+            background-color: red;
+            color: rgb(255, 219, 174);
+            cursor: pointer;
+        }
+            .red{
+                background-color: red;
+                color: bisque;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                padding: 0.5px 15px;
+                border-bottom: 2px solid rgb(236, 130, 0);
+            }
+        #showText:hover{
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+        }   
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Clase de DOM</h1>
+
+    <div class="contenidos">
+        <p class="contenido">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis enim dolorum odit amet cum incidunt sunt natus laudantium eveniet animi vero veniam, quisquam impedit nulla aspernatur et consequuntur facilis doloremque?</p>
+
+        <p class="contenido">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, labore, eius deserunt aperiam rerum beatae cupiditate maxime dolore nesciunt nisi molestiae recusandae, velit voluptas voluptatum blanditiis ducimus? Illo, sunt quisquam.</p>    
+    </div>
+
+    <div class="otros">
+        
+        <p class="contenido">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit iste ut minus qui veniam molestias alias nostrum provident? Dolores ad exercitationem accusamus assumenda eos, illum incidunt eveniet vero tempora suscipit!</p>
+
+        <p class="contenido">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit iste ut minus qui veniam molestias alias nostrum provident? Dolores ad exercitationem accusamus assumenda eos, illum incidunt eveniet vero tempora suscipit!</p>
+
+    </div>
+
+    <button id="boton">CLICK ME!</button>
+    <button id="botonRojo">RED!</button>
+    <button id="showText">SHOW TEXT!</button>
+
+    <!--
+    <script>
+        var boton = document.querySelector('#boton')
+        boton.addEventListener('click',function(){alert('VIRUS!!')})
+
+        function redHandler(){
+            var contenidos = document.querySelector('.contenidos')
+            var otros = document.querySelector('.otros')
+            contenidos.className = 'red'
+            otros.className = 'red'
+        }
+        var botonRojo = document.querySelector('#botonRojo')
+        botonRojo.addEventListener('click',redHandler)
+    </script>
+    -->
+
+    <script>
+
+        var boton = document.querySelector('#boton')    // Botón 1: CLICK ME! asignado a la variable 'boton' utilizando su #ID
+        boton.addEventListener('click',function(){alert('Thanks!!')})   // Al hacer 'click' se ejecuta la función que lanza una 'alert'
+
+        function redHandler(){  // Botón 2: RED!
+            var contenidos = document.querySelector('.contenidos')
+            var otros = document.querySelector('.otros')
+            contenidos.classList.toggle('red');
+            otros.classList.toggle('red');
+        }
+
+        var botonRojo = document.querySelector('#botonRojo')
+        botonRojo.addEventListener('click', redHandler)
+
+        //--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
+        function cambiarClase(event){   // Botón 3: SHOW TEXT!
+            //event.target.className = 'otros'
+            if(event.target.tagName.toLowerCase() === 'div'){   // Si el elemento al que se ha hecho 'click' es un div...
+                event.target.classList.toggle('otros')  // Asigna a dicho elemento (div) la clase 'otros' -> al usar 'toggle' podemos volver a la clase previa clickeando nuevamente.
+            }
+        }
+
+        function showTextfunc(){
+            var div = document.createElement("div")     // crea un div.
+            var parrafo = document.createElement("p")   // crea un párrafo.
+            parrafo.innerText = "\n Párrafo de prueba \n\n" // Da el siguiente texto al párrafo.
+            div.appendChild(parrafo)    // establece que el párrafo será hijo del div creado previamente. 
+            div.className = "contenidos"    // establece que la clase del div sera 'contenidos' (así heredará los estilos de esta clase).
+            div.addEventListener('click', cambiarClase) // Event Listener : al hacer click en el div se ejecutará la función 'cambiarClase'.
+            document.querySelector("body").appendChild(div) // establece que si div creado será hijo del 'body'.
+            parrafo.style.pointerEvents = 'none';   // evita que se relacione con los eventos del puntero.
+        }
+        showText.addEventListener('click',showTextfunc) // BOTÓN 'SHOW TEXT' -> al hacer 'click' en el se ejecuta la función 'showTextfunc'
+
+    </script>
+
+</body>
+</html>

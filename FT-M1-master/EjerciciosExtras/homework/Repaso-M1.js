@@ -16,8 +16,15 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    
+    let sum = 0
+    for(let i=0; i < array.length; i++){
+        if(Array.isArray(array[i])) sum += countArray(array[i])
+        else sum += array[i]
+    }
+    return sum
 }
+console.log(countArray([1,2,1,1,[2,2,[1,2],2,1],1]))
+console.log(countArray([5,[5,2,[1,5]],2]))
 
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
