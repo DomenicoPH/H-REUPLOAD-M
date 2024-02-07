@@ -1,0 +1,112 @@
+body {
+  background-color: rgb(232, 246, 255);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #bb6442;
+  height: 56px;
+  /* padding-left: 15px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header span {
+  font-size: 24px;
+  color: #000;
+  padding-right: 15px;
+}
+
+#header img {
+  max-width: 35px;
+  max-width: 35px;
+  padding-left: 15px;
+}
+
+#createdBy {
+  font-style: italic;
+  letter-spacing: 0.2rem;
+}
+
+#container {
+  background-color: #bb6442;
+  box-shadow: 2px 2px 5px#000;
+  width: 50%;
+  min-width: 700px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#inputContainer {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+}
+
+#toDoInput {
+  outline: none;
+  width: 75%;
+  padding-left: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+#addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 35px;
+  background: #e9c370;
+  color: #383333;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+#toDoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.toDoShell {
+  width: 650px;
+  min-height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.toDoShell span {
+  width: 90%;
+}
+.completeText {
+  color: lightgrey;
+  text-decoration: line-through;
+}
+
+.completeCheckbox {
+  transform: scale(1.8);
+}

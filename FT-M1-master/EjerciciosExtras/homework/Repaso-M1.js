@@ -46,8 +46,28 @@ console.log(countArray([5,[5,2,[1,5]],2]))
 
 var countProps = function(obj) {
     // Tu código aca:
-
+    let count = 0
+    for(const key in obj){
+        if(obj.hasOwnProperty(key)){
+            count++
+            if(typeof obj[key] === 'object' && obj[key] !== null){
+                count += countProps(obj[key])
+            }
+        }
+    }
+    return count
 }
+var testObj = {
+  a: {
+    a1: 10,
+    a2: 'Franco',
+    a3: {f: 'r', a: 'n', c: {o: true}}
+  },
+  b: 2,
+  c: [1, {a: 1}, 'Franco']
+}
+console.log(countProps(testObj))
+console.log(countProps({a:1,b:2,c:[{a:3}, 4, 5],d:{a:7, b:9}}))
 
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
