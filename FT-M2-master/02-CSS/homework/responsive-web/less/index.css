@@ -160,32 +160,6 @@ p {
   width: 100%;
   margin: 0 auto;
 }
-.navContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  background-color: #F6F6F6;
-  border: #F1F1F1;
-  padding: 10px;
-}
-.title {
-  font-size: 3.1em;
-  padding: 0.8em;
-  color: #454A59;
-}
-.nav {
-  padding-bottom: 15px;
-}
-.nav ul {
-  display: flex;
-}
-.nav ul li {
-  font-size: 1.5em;
-  padding: 0px 10px;
-  font-family: #454A59;
-}
 footer {
   color: #22283B;
   background: #f4f4f4;
@@ -195,10 +169,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.home .image {
-  border-radius: 20px;
-  margin: 0.8em;
 }
 .home .intro h2 {
   padding: 15px;
@@ -242,22 +212,6 @@ footer {
 .home .actual .actual-text p {
   margin-bottom: 26px;
 }
-.home .actual .actual-text .btn {
-  background-color: #22283A;
-  border: 1px solid #22283A;
-  color: #F6F6F6;
-  font-size: 1.5em;
-  width: fit-content;
-  padding: 0.8em;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-.home .actual .actual-text .btn:hover {
-  background-color: #F6F6F6;
-  color: #22283A;
-  border: 1px solid #22283A;
-}
 .home .actual .actual-img {
   width: 46%;
   margin-left: 4%;
@@ -266,33 +220,4 @@ footer {
   width: 100%;
   height: auto;
   border-radius: 10px;
-}
-@media (max-width: 830px) {
-  .home .image {
-    width: calc(100vw - 18px);
-  }
-  .home .music-images .auricular {
-    width: calc(100vw - 18px);
-  }
-  .home .actual {
-    flex-direction: column-reverse;
-    padding: 50px 0px 50px 15px;
-  }
-  .home .actual .actual-text {
-    width: 100%;
-  }
-  .home .actual .actual-text .btn {
-    width: calc(100vw - 30px);
-    padding: 1.3em;
-    text-align: center;
-    font-size: 1.8em;
-  }
-  .home .actual .actual-img {
-    width: calc(100vw - 30px);
-    margin-left: 0;
-  }
-  .home .tecnologia,
-  .home .ondas {
-    display: none;
-  }
 }

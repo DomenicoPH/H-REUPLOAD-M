@@ -373,6 +373,19 @@ function f18(num){
 }
 console.log(f18(180))
 
+function f19(num){
+    let factores = [1]
+    let divisor = 2
+    while(num > 1){
+        while(num % divisor === 0){
+            factores.push(divisor)
+            num /= divisor
+        }
+        divisor++
+    }
+    return factores
+}
+console.log(f19(180))
 
 
 // bubble sort ( (<) (<) (j > j+1) )
@@ -626,6 +639,20 @@ function bs19(arr){
 }
 console.log(bs19([5,4,3,2,1]))
 
+function bs20(arr){
+for(let i=0; i < arr.length - 1; i++){
+    for(let j=0; j < arr.length - 1; j++){
+        if(arr[j] > arr[j+1]){
+            let aux = arr[j]
+            arr[j] = arr[j+1]
+            arr[j+1] = aux
+        }
+    }
+}
+return arr
+}
+console.log(bs20([5,4,3,2,1]))
+
 
 // insertion sort ( (<) (>) (j < j-1) )
 function is1(arr){
@@ -841,6 +868,32 @@ function is16(arr){
     return arr
 }
 console.log(is16([5,4,3,2,1]))
+
+function is17(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                let aux = arr[j]
+                arr[j] = arr[j-1]
+                arr[j-1] = aux
+            }
+        }
+    }
+    return arr
+}
+console.log(is17([5,4,3,2,1]))
+
+function is18(arr){
+    for(let i=1; i < arr.length; i++){
+        for(let j=i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                [arr[j],arr[j-1]] = [arr[j-1],arr[j]]
+            }
+        }
+    }
+    return arr
+}
+console.log(is18([5,4,3,2,1]))
 
 
 // selection sort ( (<) (min = i) (<) (j < min) (min = j))
@@ -1112,6 +1165,29 @@ function ss18(arr){
 }
 console.log(ss18([5,4,3,2,1]))
 
+function ss19(arr){
+    for(let i=0; i < arr.length; i++){
+        let min = i
+        for(let j=i+1; j < arr.length; j++){
+            if(arr[j] < arr[min]) min = j
+        }
+        [arr[i],arr[min]] = [arr[min],arr[i]]
+    }
+    return arr
+}
+console.log(ss19([5,4,3,2,1]))
+
+function ss20(arr){
+    for(let i=0; i < arr.length; i++){
+        let min = i
+        for(let j = i+1; j < arr.length; j++){
+            if(arr[j] < arr[min]) min = j
+        }
+        [arr[i],arr[min]] = [arr[min],arr[i]]
+    }
+    return arr
+}
+console.log(ss20([5,4,3,2,1]))
 
 // New Rep...
 
@@ -1343,6 +1419,32 @@ function qs8(arr){
 }
 console.log(qs8([5,4,3,2,1]))
 
+function qs9(arr){
+    if(arr.length <= 1) return arr
+    let pivot = arr[0]
+    let left = []
+    let right = []
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i > pivot]) right.push(arr[i])
+    }
+    return qs9(left).concat(pivot,qs9(right))
+}
+console.log(qs9([5,4,3,2,1]))
+
+function qs10(arr){
+    if(arr.length <= 1) return arr;
+    let pivot = arr[0];
+    let left = [];
+    let right = [];
+    for(let i=1; i < arr.length; i++){
+        if(arr[i] <= pivot) left.push(arr[i])
+        if(arr[i] > pivot) right.push(arr[i])
+    }
+    return qs10(left).concat(pivot,qs10(right))
+}
+console.log(qs10([5,4,3,2,1]))
+
 
 //rep MS
 function ms01(arr){
@@ -1418,3 +1520,51 @@ function mAux03(a,b){
     return o.concat(a.slice(i), b.slice(j))
 }
 console.log(ms03([5,4,3,2,1]))
+
+
+function ms04(arr){
+    if(arr.length <= 1) return arr;
+    let half = Math.floor(arr.length / 2)
+    let left = arr.slice(0,half)
+    let right = arr.slice(half)
+    return msAux04(ms04(left),ms04(right))
+}
+function msAux04(arr1,arr2){
+    let i = 0;
+    let j = 0;
+    let ordenados = []
+    while(i < arr1.length && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            ordenados.push(arr1[i])
+            i++
+        } else {
+            ordenados.push(arr2[j])
+            j++
+        }
+    }
+    return ordenados.concat(arr1.slice(i), arr2.slice(j))
+}
+console.log(ms04([5,4,3,2,1]))
+
+
+function ms05(arr){
+    if(arr.length <= 1) return arr;
+    let half = Math.floor(arr.length / 2);
+    let left = arr.slice(0,half)
+    let right = arr.slice(half)
+    return msAux05(ms05(left),ms05(right))
+}
+function msAux05(a1,a2){
+    let i = 0;
+    let j = 0;
+    let ordenados = [];
+    while(i < a1.length && j < a2.length){
+        if(a1[i] <= a2[j]){
+            ordenados.push(a1[i]); i++
+        } else {
+            ordenados.push(a2[j]); j++
+        }
+    }
+    return ordenados.concat(a1.slice(i), a2.slice(j))
+}
+console.log(ms05([5,4,3,2,1]))
