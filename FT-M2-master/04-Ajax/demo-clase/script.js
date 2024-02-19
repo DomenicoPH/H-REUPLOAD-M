@@ -23,6 +23,13 @@ const showUsers = (users) => {
 $.get(`${URL_BASE}/users`, showUsers)
 
 
+//sintaxis de borrado
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/users/1',
+    type: 'DELETE',
+    success: () => {}
+})
+
 /* jquery
 const listaUsuarios = $('#listaUsuarios')[0]
 listaUsuarios.append(li)
