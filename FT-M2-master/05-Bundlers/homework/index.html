@@ -19,11 +19,26 @@
         <div class="marker" id="yellow"></div>
         <div class="marker" id="brown"></div>
     </div>
-
+    
+    <!-- 
     <script src="/socket.io/socket.io.js"></script>
     <script src="event-emitter.js"></script>
     <script src="whiteboard.js"></script>
     <script src="app.js"></script>
+     -->
+
+     <script src="bundle.js"></script>
+
+    <!--
+        1. Verificar las dependencias.
+        2. Buscar y quitar las IIFEs
+        3. Encontrar las llamadas a window y reemplazar por 'require' y 'module.exports'
+        4. Instalar webpack
+        5. Agregar script al package.json
+        6. webpack.config.js
+        7. crear bundle.js y enlazarlo con index.html
+    -->
+
 </body>
 
 </html>
