@@ -1,0 +1,39 @@
+.container{
+    border: 2px solid yellowgreen;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.titulo{
+    font-size: 1.5rem;
+    color: yellowgreen;
+}
+
+.numero{
+    background-color: rgb(10,10,10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    margin:  50px auto;
+    border: 2px solid yellowgreen;
+    border-radius: 25px;
+    color: yellowgreen;
+    max-width: 175px;
+    min-height: 200px;
+}
+
+.boton{
+    color: yellowgreen;
+    font-size: 2rem;
+    margin: 5px;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.reset{
+    color: yellowgreen;
+    font-size: 1.5rem;
+    margin: 5px;
+    min-width: 60%;
+}
