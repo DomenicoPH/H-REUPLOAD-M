@@ -16,7 +16,9 @@ function App() {
 
   return (
     <>
-      {/* <EstadosClase /> */}
+      <h1>Click-Counter</h1>
+      <hr />
+      <EstadosClase />
 
       <h1>Users</h1>
       <hr />
