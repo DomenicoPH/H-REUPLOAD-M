@@ -33,7 +33,8 @@ const planets = [
         ], 
         "created": "2014-12-09T13:50:49.641000Z", 
         "edited": "2014-12-20T20:58:18.411000Z", 
-        "url": "https://swapi.dev/api/planets/1/"
+        "url": "https://swapi.dev/api/planets/1/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png"
     }, 
     {
         "name": "Alderaan", 
@@ -56,7 +57,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:35:48.479000Z", 
         "edited": "2014-12-20T20:58:18.420000Z", 
-        "url": "https://swapi.dev/api/planets/2/"
+        "url": "https://swapi.dev/api/planets/2/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/4/4a/Alderaan.jpg"
     }, 
     {
         "name": "Yavin IV", 
@@ -74,7 +76,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:37:19.144000Z", 
         "edited": "2014-12-20T20:58:18.421000Z", 
-        "url": "https://swapi.dev/api/planets/3/"
+        "url": "https://swapi.dev/api/planets/3/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/d/d4/Yavin-4-SWCT.png"
     }, 
     {
         "name": "Hoth", 
@@ -92,7 +95,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:39:13.934000Z", 
         "edited": "2014-12-20T20:58:18.423000Z", 
-        "url": "https://swapi.dev/api/planets/4/"
+        "url": "https://swapi.dev/api/planets/4/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/1d/Hoth_SWCT.png"
     }, 
     {
         "name": "Dagobah", 
@@ -112,7 +116,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:42:22.590000Z", 
         "edited": "2014-12-20T20:58:18.425000Z", 
-        "url": "https://swapi.dev/api/planets/5/"
+        "url": "https://swapi.dev/api/planets/5/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/1c/Dagobah.jpg"
     }, 
     {
         "name": "Bespin", 
@@ -132,7 +137,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:43:55.240000Z", 
         "edited": "2014-12-20T20:58:18.427000Z", 
-        "url": "https://swapi.dev/api/planets/6/"
+        "url": "https://swapi.dev/api/planets/6/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/11/Bespin-SWCT.png"
     }, 
     {
         "name": "Endor", 
@@ -152,7 +158,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:50:29.349000Z", 
         "edited": "2014-12-20T20:58:18.429000Z", 
-        "url": "https://swapi.dev/api/planets/7/"
+        "url": "https://swapi.dev/api/planets/7/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/e/e5/Endor-SWCT.png"
     }, 
     {
         "name": "Naboo", 
@@ -185,7 +192,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:52:31.066000Z", 
         "edited": "2014-12-20T20:58:18.430000Z", 
-        "url": "https://swapi.dev/api/planets/8/"
+        "url": "https://swapi.dev/api/planets/8/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/f/f0/Naboo_planet.png"
     }, 
     {
         "name": "Coruscant", 
@@ -210,7 +218,8 @@ const planets = [
         ], 
         "created": "2014-12-10T11:54:13.921000Z", 
         "edited": "2014-12-20T20:58:18.432000Z", 
-        "url": "https://swapi.dev/api/planets/9/"
+        "url": "https://swapi.dev/api/planets/9/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/8/84/CoruscantGlobeE1.png"
     }, 
     {
         "name": "Kamino", 
@@ -232,7 +241,8 @@ const planets = [
         ], 
         "created": "2014-12-10T12:45:06.577000Z", 
         "edited": "2014-12-20T20:58:18.434000Z", 
-        "url": "https://swapi.dev/api/planets/10/"
+        "url": "https://swapi.dev/api/planets/10/",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/5/52/Kamino-DB.png"
     }
   ]
 
@@ -244,13 +254,14 @@ const Cards = () => {
                     console.log(index)
                     return (
                     <Card
-                     key={index}
-                     id={index}
+                     key={index += 1}
+                     id={index += 1}
                      name={planet.name}
                      clima={planet.climate}
                      gravedad={planet.gravity}
                      pop={planet.population}
                      terreno={planet.terrain}
+                     image={planet.image}
                     />
                     )
                 })

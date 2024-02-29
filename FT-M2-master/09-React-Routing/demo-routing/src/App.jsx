@@ -4,6 +4,7 @@ import Home from './views/Home'
 import About from './views/About'
 import NavBar from './components/NavBar'
 import './App.css'
+import Detail from './views/Detail'
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
         <Route path='/home' Component={Home} />
       {/* A localhost:5173/about */}
         <Route path='/about' Component={About} />
+      {/* A localhost:5173/:id */}
+        <Route path='/:id' Component={Detail}/>
       </Routes>
     </div>
   )
