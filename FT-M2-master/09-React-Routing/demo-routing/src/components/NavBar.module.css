@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    background-color: black;
+}
+
+.links{
+    display: flex;
+}
+
+.link{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    padding: 5px;
+}

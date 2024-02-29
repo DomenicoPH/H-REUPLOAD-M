@@ -1,0 +1,32 @@
+.container{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid white;
+    background-color: rgb(60, 60, 60);
+    width: 350px;
+    padding: 10px;
+    margin: 5px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.dataContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dataContainer h4 {
+    font-size: 1rem;
+    border: 1px solid white;
+    color: white;
+    width: 300px;
+    margin: 0;
+    padding: 10px;
+}
+
+.span{
+    color: slategray;
+}
