@@ -251,7 +251,6 @@ const Cards = () => {
         <div className={style.containerCards}>
             {
                 planets.map((planet,index) => {
-                    console.log(index)
                     return (
                     <Card
                      key={index += 1}
