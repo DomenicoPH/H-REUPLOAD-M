@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkmagenta;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.container{
+    background-color: rgb(0,0,40);
+    color: azure;
+    padding: 20px 60px;
+    border-radius: 25px;
+}
+
+button{
+    background-color: darkblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: azure;
+}
+button:hover{
+    background-color: purple;
+}

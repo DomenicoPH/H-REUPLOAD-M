@@ -62,3 +62,7 @@ store.dispatch({ type: CAMBIAR_NOMBRE, payload: 'Graciela' });
 store.dispatch({ type: AGREGAR_NUMEROS, payload: 6 });
 store.dispatch(aumentarContador())
 store.dispatch(aumentarContador())
+
+console.log('Este es mi estado "name" actual:',store.getState().name)
+console.log('Este es mi estado "count" actual:',store.getState().count)
+console.log('Este es mi estado "numeros" actual:',store.getState().numeros)
