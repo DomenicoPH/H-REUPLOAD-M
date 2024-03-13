@@ -1,11 +1,18 @@
 import React from "react";
 import Card from './Card';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCharacters } from "../redux/actions";
 import '../App.css'
 
 const CardsFunc = () => {
 
     const characters = useSelector((state) => state.characters);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCharacters())
+    },[])
 
     return(
         <div className="cardsFuncContainer">
