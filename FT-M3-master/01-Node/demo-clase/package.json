@@ -1,0 +1,16 @@
+{
+  "name": "demo-clase",
+  "version": "1.0.0",
+  "description": "Demo clase de NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Domenico Pagano",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.0",
+    "redux": "^5.0.1"
+  }
+}
